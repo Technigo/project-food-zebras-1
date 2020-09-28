@@ -6,9 +6,10 @@ During the session your team will be challenged to build a website that lists re
 
 Your page will be built based on a random combination of cuisine, city, and design provided by the Technigo team on site. All data should be fetched from the [Zomato API.](https://developers.zomato.com/)  
 
-## Your team's combination: [cuisine] restaurants in [city]
+## Your team's combination: Spanish restaurants in Stockholm
 
-Your team has been tasked with using the Zomato API to list [cuisine] restaurants in [city]
+Your team has been tasked with using the Zomato API to list Spanish restaurants in Stockholm
+![Foodora](https://camo.githubusercontent.com/d8830f6be0885ed11e19c64bec5d7c0d88be1137/68747470733a2f2f692e696d6775722e636f6d2f3151766b4f38702e6a7067)
 
 ## How to complete this task
 
