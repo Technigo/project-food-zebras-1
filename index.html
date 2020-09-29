@@ -7,6 +7,24 @@
   <link rel="stylesheet" href="./style.css">
 </head>
 <body>
+    <header class="header">
+    </header>
+    <section class="wrap-container">
+        <section id="filter" class="filter">
+            <input id="filterPrice" class="range-slider" type="range" min="0" max="10" />
+            <input id="filterRating" class="range-slider" type="range" min="0" max="10" />
+        </section>
+        <section id="sort" class="sort">
+            <select name="sortBy" id="sortBy">
+                <option value="price">Price</option>
+                <option value="rating">Rating</option>
+            </select>
+            <select name="sortingOrder" id="sortingOrder">
+                <option value="Asc">Low-High</option>
+                <option value="Desc">High-Low</option>
+            </select>
+        </section>
+    </section>
   <main id="mainContent" class="main-content">
       <h1>test</h1>
   </main>
