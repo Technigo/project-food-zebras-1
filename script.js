@@ -4,12 +4,26 @@
 
 //const restaurants = document.getElementsByClassName('restaurant'); //dont use this
 
-const setUpRequest = (sort, order) => {
+ //funktion filterResult som returnerar en filtrerad array
+ const filterPrice = () => {
+  const filterPriceInput = document.getElementById('filterPrice').value
+  console.log("Price in filterPrice" ,filterPriceInput)
+  return filterPriceInput
+}
+
+
+const filterRating = () => {
+  const filterRatingInput = document.getElementById('filterRating').value
+  console.log(filterRatingInput)
+  return filterRatingInput
+}
+
+const setUpRequest = (sort) => {
   let sortResult = sort
-  console.log(sortResult)
-  let sortOrder = order
-  console.log(sortOrder)
-  const apiData = `https://developers.zomato.com/api/v2.1/search?entity_id=64&entity_type=city&count=50&cuisines=89&sort=${sortResult}&order=${sortOrder}`
+  //console.log(sortResult)
+  //let sortOrder = order
+  //console.log(sortOrder)
+  const apiData = `https://developers.zomato.com/api/v2.1/search?entity_id=64&entity_type=city&count=20&cuisines=89&sort=${sortResult}&order=asc`
   const apiKey = `6fe7eca07d46a86fc9db6690648ba3df`
     const request = new Request(apiData, {
         headers: new Headers({
@@ -21,33 +35,27 @@ const setUpRequest = (sort, order) => {
 }
 
 //function that takes in sorted values 
-const changedSort = () => {
+const applyFilters = () => {
   const selectedSortBy = document.getElementById('sortBy').value
-  const sortOrder = document.getElementById('sortingOrder').value
-  fetchRestaurants(selectedSortBy, sortOrder)
-  console.log(selectedSortBy)
-  console.log(sortOrder)
+  //const sortOrder = document.getElementById('sortingOrder').value
+  const filterPriceResult = filterPrice();
+  const filterRatingResult = filterRating();
+  console.log("In apply filters: ",selectedSortBy,filterPriceResult,filterRatingResult);
+  //fetchRestaurants(selectedSortBy, sortOrder)
+  //console.log(selectedSortBy)
+  //console.log(sortOrder)
+  fetchRestaurants(selectedSortBy,true);
 }
 
+//functin to add a default image to restaurants with no image 
 const setDefaultImage = () => {
   return './image/default-image.jpg'
 }
 
- //funktion filterResult som returnerar en filtrerad array
-const filterPrice = () => {
-  const filteredOnPrice = document.getElementById('filterPrice').value
-  console.log(filteredOnPrice)
-}
+const fetchRestaurants = (sort = 'cost',filter = false) => {
+  console.log("In Fetch restaurants: ",sort,filter);
+  const requestObject = setUpRequest(sort);
 
-const filterRating = () => {
-  const filter
-}
-
-
-
-const fetchRestaurants = (sort = 'cost', order = 'asc') => {
-  console.log(sort, order)
-  const requestObject = setUpRequest(sort, order);
 
   fetch(requestObject) //we use the request object and pass it in to the fetch-function (instead of the URL)
     .then((response) => {
@@ -57,17 +65,19 @@ const fetchRestaurants = (sort = 'cost', order = 'asc') => {
       console.log(json);
       //map
       let newArray = json.restaurants.map(restaurantInformation)
-      
-      //newArray ska filtreras på rating eller price. Tänkbar funktion är t.ex. array.filter 
-      // newArray = newArray.filter(item => item.averageCost < 50);
-
-      // document.querySelector('.rest-name').innerHTML += restName
-      // document.querySelector('.rest-address').innerHTML += restAddress
+      if(filter === true){
+        newArray = rangeFilter(newArray)
+      }
+ 
       console.log(newArray)
+     // console.log(newArray)
       //
       document.getElementById("mainContent").innerHTML = ''; 
-    newArray.forEach(renderHTML)
-    })
+    //newArray.forEach(renderHTML)
+    newArray.forEach(renderHTML);
+        
+      });
+ 
 }
 fetchRestaurants();
 
@@ -78,14 +88,14 @@ const restaurantInformation = (information) => {
   const averageRating = information.restaurant.user_rating.aggregate_rating
   let image = information.restaurant.featured_image
   if (image === '') image = setDefaultImage()
-  console.log(image)
+  //console.log(image)
   const currency = information.restaurant.currency
   //console.log(image);
   return {restaurantName, restaurantAddress, averageRating, averageCost, currency, image}
 }
 
 const renderHTML = (restaurantItem, index) => { 
-    console.log(restaurantItem, index); 
+    //console.log(restaurantItem, index); 
     let restaurantSection = `<section class="restaurant">`; 
     restaurantSection += `<div class="picture-container">`; 
     restaurantSection += `<img class="rest-picture" src="${restaurantItem.image}"/>`; 
@@ -100,3 +110,33 @@ const renderHTML = (restaurantItem, index) => {
     document.getElementById("mainContent").innerHTML += restaurantSection; 
 }
 
+const rangeFilter = (restaurantArray) => {
+  const filterPriceResult = filterPrice() 
+  const filterRatingResult = filterRating()
+  console.log(`in rangefilter price ${filterPriceResult}`)
+  console.log(`in rangefilter rating ${filterRatingResult}`)
+  //newArray ska filtreras på rating eller price. Tänkbar funktion är t.ex. array.filter 
+  let filteredArray = restaurantArray.filter(item => (item.averageCost <= filterPriceResult) && item.averageRating >= filterRatingResult);
+  //let filteredCostandRatingArray = filteredCostArray.filter(item => item.averageRating >= filterRatingResult);
+  return filteredArray
+
+}
+
+const changedPriceValue = () => {
+  let value = document.getElementById('filterPrice').value;
+  let valueText;
+  if (value <= 100){
+      valueText = 'Budget';
+  }
+  else if(value > 100 && value < 500){
+    valueText = 'Mid-range'
+  }
+  else (valueText = 'High')
+  document.getElementById('outputPrice').innerHTML = valueText;
+}
+
+const changedRatingValue = () => {
+  let value = document.getElementById('filterRating').value;
+  document.getElementById('outputRating').innerHTML = value;
+
+}

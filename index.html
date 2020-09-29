@@ -11,18 +11,23 @@
     </header>
     <section class="wrap-container">
         <section id="filter" class="filter">
-            <input id="filterPrice" class="range-slider" type="range" min="0" max="10" />
-            <input id="filterRating" class="range-slider" type="range" min="0" max="10" />
+            <label for ="filterPrice">Max price</label>  
+                <input id="filterPrice" class="range-slider" name="filterPrice" type="range" min="40" max="1000" step="100" value="1000" onchange="changedPriceValue()"/>
+                <output id="outputPrice" name="output-price" for="filterPrice">High</output>
+            <label for ="filterRating">Min rating</label>
+                <input id="filterRating" class="range-slider" name="filterRating" type="range" min="0" max="5" value="1" onchange="changedRatingValue()"/>
+                <output id="outputRating" name="output-rating" for="filterRating">1</output>
         </section>
         <section id="sort" class="sort">
-            <select name="sortBy" id="sortBy" onchange="changedSort()">
+            <select name="sortBy" id="sortBy">
                 <option value="cost">Price</option>
                 <option value="rating">Rating</option>
             </select>
-            <select name="sortingOrder" id="sortingOrder" onchange="changedSort()">
+           <!--<select name="sortingOrder" id="sortingOrder">
                 <option value="asc">Low-High</option>
-                <option value="desc">High-Low</option>
-            </select>
+                <option value="desc" selected>High-Low</option>
+            </select>--> 
+            <button class="filter-button" id="filterButton" onClick="applyFilters()">Apply filters</button>
         </section>
     </section>
   <main id="mainContent" class="main-content">
