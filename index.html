@@ -8,14 +8,16 @@
 </head>
 <body>
     <header class="header">
-        <h1 class="header-text">Header Text</h1>
-        <img class="logo" src="" alt="logo image" />
+        <h1 class="header-text">Food To Go...</h1>
+        <img class="logo" src="./logo.png" alt="logo image" />
     </header>
     <section class="wrap-container">
         <div class="search-field">
             <section id="filter" class="filter">
-                <input id="filterPrice" class="range-slider" type="range" min="0" max="10" />
-                <input id="filterRating" class="range-slider" type="range" min="0" max="10" />
+                <label for="filterPrice">Price:</label>
+                <input type="range" id="filterPrice" class="range-slider" min="0" max="10" value="0" />
+                <label for="filterRating">Rating:</label>
+                <input type="range" id="filterRating" class="range-slider" min="0" max="10" value="0" />
             </section>
         
             <section id="sort" class="sort">
