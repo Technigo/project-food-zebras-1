@@ -15,13 +15,13 @@
             <input id="filterRating" class="range-slider" type="range" min="0" max="10" />
         </section>
         <section id="sort" class="sort">
-            <select name="sortBy" id="sortBy">
-                <option value="price">Price</option>
+            <select name="sortBy" id="sortBy" onchange="changedSort()">
+                <option value="cost">Price</option>
                 <option value="rating">Rating</option>
             </select>
-            <select name="sortingOrder" id="sortingOrder">
-                <option value="Asc">Low-High</option>
-                <option value="Desc">High-Low</option>
+            <select name="sortingOrder" id="sortingOrder" onchange="changedSort()">
+                <option value="asc">Low-High</option>
+                <option value="desc">High-Low</option>
             </select>
         </section>
     </section>
