@@ -12,7 +12,7 @@
     <section class="wrap-container">
         <section id="filter" class="filter">
             <label for ="filterPrice">Max price</label>  
-                <input id="filterPrice" class="range-slider" name="filterPrice" type="range" min="40" max="1000" step="100" value="1000" onchange="changedPriceValue()"/>
+                <input id="filterPrice" class="range-slider" name="filterPrice" type="range" min="0" max="1000" step="100" value="1000" onchange="changedPriceValue()"/>
                 <output id="outputPrice" name="output-price" for="filterPrice">High</output>
             <label for ="filterRating">Min rating</label>
                 <input id="filterRating" class="range-slider" name="filterRating" type="range" min="0" max="5" value="1" onchange="changedRatingValue()"/>
@@ -23,10 +23,10 @@
                 <option value="cost">Price</option>
                 <option value="rating">Rating</option>
             </select>
-           <!--<select name="sortingOrder" id="sortingOrder">
+           <select name="sortingOrder" id="sortingOrder">
                 <option value="asc">Low-High</option>
                 <option value="desc" selected>High-Low</option>
-            </select>--> 
+            </select>
             <button class="filter-button" id="filterButton" onClick="applyFilters()">Apply filters</button>
         </section>
     </section>
