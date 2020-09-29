@@ -1,6 +1,126 @@
-.restaurant {
-    border: 2px solid #000;
-  }
-  .rest-picture {
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,600;0,700;1,400&display=swap');
+
+body {
+    margin: 0;
+    padding: 0;
+    
+}
+
+.header {
+    margin: 0 5px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    height: 100px;
+    color: #d70f64;
+    box-shadow: 0 2px 16px 0 rgba(0,0,0,.08);
+    font-family: 'Montserrat', sans-serif;
+}
+
+.main-content {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    width: 95%;
+    margin: 0 auto;
+}
+
+.search-field {
+    /*display: flex;
+    flex-direction: column; */
+    margin: 20px auto 10px auto;
+    width: 300px;
+    padding: 5px;
+    box-shadow: 0 2px 16px 0 rgba(0,0,0,.08);
+}
+
+.filter input {
+    
+}
+
+.sort select {
     width: 200px;
+    height: 50px;
+    margin-bottom: 20px;
+}
+
+input[type="range"] {
+    -webkit-appearance: none;
+    background-color: #d70f64;
+    width: 99%;
+    height: 7px;
+    cursor: pointer;
+    border-radius: 4px;
+    margin-bottom: 20px;
   }
+  
+  input[type="range"]:focus {
+    border: none;
+    outline: none;
+  }
+  
+  input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    background-color: #333;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+  }
+
+.sort {
+    padding: 5px 0;
+    /* margin-left: 50px; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.restaurant {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 350px;
+    width: 300px;
+    padding: 10px 40px;
+    margin: 15px 5px;
+    box-shadow: 0 2px 16px 0 rgba(0,0,0,.08);
+}
+
+.rest-picture {
+    width: 200px;
+    margin-bottom: 10px;
+}
+
+.footer {
+      background-color: #d70f64;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 400;
+}
+
+/* Media query for tablet */
+@media (min-width: 768px) {
+    .restaurant {
+        width: 200px;
+        margin-right: 20px;
+    }
+
+}
+
+/* Media query for desktop */
+@media (min-width: 1025px) {
+    .sort select {
+        width: 200px;
+        height: auto;
+        margin-bottom: 5px;
+    }
+
+
+}
+
