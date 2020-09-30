@@ -9,17 +9,17 @@
 </head>
 <body>
     <header class="header">
-        <h1 class="header-text">Food To Go...</h1>
+        <h1 class="header-text">Foodie</h1>
         <img class="logo" src="./logo.png" alt="logo image" />
     </header>
     <section class="wrap-container">      
 
         <div class="search-field">      
             <section id="filter" class="filter">
-                <label for ="filterPrice">Max price 
+                <label for ="filterPrice">Budget 
                     <input id="filterPrice" class="range-slider" name="filterPrice" type="range" min="0" max="1000" step="100" value="1000" onchange="changedPriceValue()"/>
                     <output id="outputPrice" name="output-price" for="filterPrice">High</output></label> 
-                <label for ="filterRating">Min rating
+                <label for ="filterRating">Min Rating
                     <input id="filterRating" class="range-slider" name="filterRating" type="range" min="0" max="5" value="1" onchange="changedRatingValue()"/>
                     <output id="outputRating" name="output-rating" for="filterRating">1</output></label>
             </section>

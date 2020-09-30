@@ -79,7 +79,7 @@ const renderHTML = (restaurantItem, index) => {
   restaurantSection += `<p class="rest-name">${restaurantItem.restaurantName}</p>`; 
   restaurantSection += `<p class="rest-address"> ${restaurantItem.restaurantAddress}</p>`; 
   restaurantSection += `<p class="rest-average-cost">${restaurantItem.averageCost} ${restaurantItem.currency} </p>`; 
-  restaurantSection += `<p class="rest-rating">${restaurantItem.averageRating}</p>`; 
+  restaurantSection += `<p class="rest-rating">&#x2605;${restaurantItem.averageRating} / 5</p>`; 
   restaurantSection += `</div>`; 
   restaurantSection += `</section>`; 
   console.log(restaurantSection);

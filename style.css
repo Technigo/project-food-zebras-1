@@ -37,18 +37,30 @@ body {
     /*display: flex;
     flex-direction: column; */
     margin: 20px auto 10px auto;
-    width: 300px;
+    /* width: 300px; */
     padding: 10px 20px;
     box-shadow: 0 2px 16px 0 rgba(0,0,0,.08);
 }
 
-.filter input {
+.filter  {
     /* investigate tomorrow */
+    display: flex;
+    flex-direction: column;
+}
+
+label{
+    margin-bottom: 30px;
+    font-size: 14px;
 }
 
 .sort select {
-    width: 200px;
+    width: 99%;
     height: 50px;
+    margin-bottom: 10px;
+    font-size: 14px;
+    border: none;
+    background-color: #fff;
+    box-shadow: 0 2px 16px 0 rgba(0,0,0,.08);
 }
 
 input[type="range"] {
@@ -79,6 +91,7 @@ input[type="range"] {
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-top: 20px;
 }
 
 option, select, .filter-button {
@@ -86,7 +99,7 @@ option, select, .filter-button {
 }
 
 .filter-button {
-    width: 200px; 
+    width: 99%;
     height: 50px;  
     border: 2px solid #d70f64;
     color: #d70f64;
@@ -116,6 +129,10 @@ option, select, .filter-button {
     margin-bottom: 10px;
 }
 
+.rest-address{
+    font-size: 12px;
+}
+
 .picture-container {
     width: 90%;
     height: 60%;
@@ -125,10 +142,14 @@ option, select, .filter-button {
 }    
 
 .restaurant-description {
-    font-size: 12px;
+    font-size: 14px;
     height: 40%;
+    padding: 0 0 10px 21px;
 }
 
+.rest-name{
+    font-weight: bold;
+}
 
 .footer {
     background-color: #d70f64;
@@ -146,8 +167,9 @@ option, select, .filter-button {
 /* Media query for tablet */
 @media (min-width: 768px) {
     .restaurant {
-        width: 25%;
+        width: 35%;
         margin-right: 20px;
+        height: 450px;
     }
 
 }
@@ -169,7 +191,7 @@ option, select, .filter-button {
     }
 
     .filter {
-        display: flex;
+        flex-direction: row;
         justify-content: space-evenly;
         margin-bottom: 20px;
     }
@@ -186,6 +208,23 @@ option, select, .filter-button {
     input[type="range"]::-webkit-slider-thumb {
         width: 12px;
         height: 12px;
+    }
+
+    .filter-button{
+        width: 15%;
+        box-shadow: 0 2px 16px 0 rgba(0,0,0,.08);
+    }
+
+   .sort select{
+        width: 15%;
+        border: 2px solid transparent;
+        margin-bottom: 0;
+    }
+
+    .restaurant {
+        max-width: 20%;
+        margin-right: 20px;
+        height: 450px;
     }
 
 }
