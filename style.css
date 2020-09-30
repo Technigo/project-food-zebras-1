@@ -22,6 +22,12 @@ body {
     width: 80px;
 }
 
+.location-info {
+    font-family: 'Montserrat', sans-serif;
+    text-align: center;
+    color: #d70f64;
+}
+
 .main-content {
     display: flex;
     flex-wrap: wrap;
@@ -186,7 +192,7 @@ option, select, .filter-button {
     }
 
     .search-field {
-        width: 100%;
+        width: 96%;
         margin-top: 30px;
     }
 
