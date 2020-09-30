@@ -70,20 +70,24 @@ fetchAllRestaurants();
 
 const renderHTML = (restaurantItem, index) => { 
   //console.log(restaurantItem, index); 
+  let containerID = `pictureContainer${index+1}`;
   let restaurantSection = `<section class="restaurant">`; 
-  restaurantSection += `<div id="pictureContainer" class="picture-container">`; 
+  restaurantSection += `<div id="${containerID}" class="picture-container">`; 
   //restaurantSection += `<img class="rest-picture" src="${restaurantItem.image}"/>`; 
   restaurantSection += `</div>`; 
-  restaurantSection += `<div class="restaurant-description>`; 
-  restaurantSection += `<h1 class="rest-name">Restaurant name ${restaurantItem.restaurantName}</h1>`; 
-  restaurantSection += `<p class="rest-address"> Address ${restaurantItem.restaurantAddress}</p>`; 
-  restaurantSection += `<p class="rest-average-cost"> Avg Cost ${restaurantItem.averageCost} ${restaurantItem.currency} </p>`; 
-  restaurantSection += `<p class="rest-rating"> Rating ${restaurantItem.averageRating}</p>`; 
+  restaurantSection += `<div class="restaurant-description">`; 
+  restaurantSection += `<p class="rest-name">${restaurantItem.restaurantName}</p>`; 
+  restaurantSection += `<p class="rest-address"> ${restaurantItem.restaurantAddress}</p>`; 
+  restaurantSection += `<p class="rest-average-cost">${restaurantItem.averageCost} ${restaurantItem.currency} </p>`; 
+  restaurantSection += `<p class="rest-rating">${restaurantItem.averageRating}</p>`; 
   restaurantSection += `</div>`; 
   restaurantSection += `</section>`; 
+  console.log(restaurantSection);
   document.getElementById("mainContent").innerHTML += restaurantSection; 
   let imageURL = "url('" +restaurantItem.image+ "')";
-  document.getElementById("pictureContainer").style.backgroundImage= imageURL;
+
+  document.getElementById(containerID).style.backgroundImage= imageURL;
+  console.log(imageURL); 
 }
 
  const filterPrice = () => {
@@ -115,7 +119,7 @@ const changedPriceValue = () => {
   if (value <= 100){
       valueText = 'Budget';
   }
-  else if(value > 100 && value < 500){
+  else if(value > 100 && value < 700){
     valueText = 'Mid-range'
   }
   else (valueText = 'High')
@@ -147,7 +151,7 @@ const restaurantInformation = (information) => {
   const restaurantAddress = information.restaurant.location.address
   const averageCost = information.restaurant.average_cost_for_two 
   const averageRating = information.restaurant.user_rating.aggregate_rating
-  let image = information.restaurant.featured_image
+  let image = information.restaurant.featured_image;
   if (image === '') image = setDefaultImage()
   //console.log(image)
   const currency = information.restaurant.currency

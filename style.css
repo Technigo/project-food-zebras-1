@@ -1,8 +1,9 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,600;0,700;1,400&display=swap');
-
 body {
     margin: 0;
     padding: 0;
+    display: flex;
+    flex-direction: column;
+    font-family: 'Open Sans', sans-serif;
 }
 
 .header {
@@ -28,6 +29,8 @@ body {
     justify-content: center;
     width: 95%;
     margin: 0 auto;
+    flex: 1 0 auto;
+    min-height: 65vh;
 }
 
 .search-field {
@@ -46,11 +49,6 @@ body {
 .sort select {
     width: 200px;
     height: 50px;
-    margin-bottom: 20px;
-}
-
-.sort select::input {
-
 }
 
 input[type="range"] {
@@ -83,14 +81,32 @@ input[type="range"] {
     align-items: center;
 }
 
+option, select, .filter-button {
+    font-family: 'Open Sans', sans-serif;
+}
+
+.filter-button {
+    width: 200px; 
+    height: 50px;  
+    border: 2px solid #d70f64;
+    color: #d70f64;
+    background-color: #fff;
+    font-weight: bold;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+.filter-button:hover {
+    color: #fff;
+    background-color: #d70f64;
+}
+
 .restaurant {
     display: flex;
     flex-direction: column;
-    align-items: center;
     justify-content: center;
-    height: 350px;
-    width: 300px;
-    padding: 10px 40px;
+    height: 410px;
+    width: 80%;
     margin: 15px 5px;
     box-shadow: 0 2px 16px 0 rgba(0,0,0,.08);
 }
@@ -100,20 +116,37 @@ input[type="range"] {
     margin-bottom: 10px;
 }
 
+.picture-container {
+    width: 90%;
+    height: 60%;
+    background-position: center;
+    background-size: cover;  
+    align-self: center;
+}    
+
+.restaurant-description {
+    font-size: 12px;
+    height: 40%;
+}
+
+
 .footer {
-      background-color: #d70f64;
-      color: #fff;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-family: 'Montserrat', sans-serif;
-      font-weight: 400;
+    background-color: #d70f64;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    width: 100%;
+    margin-top: 20px;
+    flex-shrink: 0;
 }
 
 /* Media query for tablet */
 @media (min-width: 768px) {
     .restaurant {
-        width: 200px;
+        width: 25%;
         margin-right: 20px;
     }
 
@@ -131,28 +164,23 @@ input[type="range"] {
     }
 
     .search-field {
-        width: 600px;
-        padding: 30px 20px 0 20px;
+        width: 100%;
+        margin-top: 30px;
     }
 
     .filter {
         display: flex;
+        justify-content: space-evenly;
+        margin-bottom: 20px;
     }
 
     .filter label{
-        margin: 0 10px;
-    }
-
-
-    .sort select {
-        width: 100px;
-        height: auto;
-        margin-left: auto;
-        margin-right: auto;
+        width: 30%;
     }
 
     .sort {
         flex-direction: row;
+        justify-content: space-evenly;
     }    
 
     input[type="range"]::-webkit-slider-thumb {
@@ -161,4 +189,6 @@ input[type="range"] {
     }
 
 }
+
+
 
