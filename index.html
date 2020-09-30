@@ -11,34 +11,39 @@
         <h1 class="header-text">Food To Go...</h1>
         <img class="logo" src="./logo.png" alt="logo image" />
     </header>
-    <section class="wrap-container">
-        <div class="search-field">
+    <section class="wrap-container">      
+
+        <div class="search-field">      
             <section id="filter" class="filter">
-                <label for="filterPrice">Price:</label>
-                <input type="range" id="filterPrice" class="range-slider" min="0" max="10" value="0" />
-                <label for="filterRating">Rating:</label>
-                <input type="range" id="filterRating" class="range-slider" min="0" max="10" value="0" />
+                <label for ="filterPrice">Max price</label>  
+                    <input id="filterPrice" class="range-slider" name="filterPrice" type="range" min="0" max="1000" step="100" value="1000" onchange="changedPriceValue()"/>
+                    <output id="outputPrice" name="output-price" for="filterPrice">High</output>
+                <label for ="filterRating">Min rating</label>
+                    <input id="filterRating" class="range-slider" name="filterRating" type="range" min="0" max="5" value="1" onchange="changedRatingValue()"/>
+                    <output id="outputRating" name="output-rating" for="filterRating">1</output>
             </section>
-        
             <section id="sort" class="sort">
                 <select name="sortBy" id="sortBy">
-                    <option value="price">Price</option>
+                    <option value="cost">Price</option>
                     <option value="rating">Rating</option>
                 </select>
-                <select name="sortingOrder" id="sortingOrder">
-                    <option value="Asc">Low-High</option>
-                    <option value="Desc">High-Low</option>
+            <select name="sortingOrder" id="sortingOrder">
+                    <option value="asc">Low-High</option>
+                    <option value="desc" selected>High-Low</option>
                 </select>
+                <button class="filter-button" id="filterButton" onClick="applyFilters()">Apply filters</button>
             </section>
         </div>
     </section>
-  <main id="mainContent" class="main-content">
+ 
+    <section id="mainContent" class="main-content">
      
-  </main>
+  </section>
 
-  <footer class="footer">
-    <p>Zebra project group 1</p>
-  </footer>
-<script src="./script.js"></script>  
+    <footer class="footer">
+        <p>Zebra project group 1</p>
+    </footer>
+    
+    <script src="./script.js"></script>  
 </body>
 </html>
